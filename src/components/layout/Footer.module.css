@@ -1,0 +1,114 @@
+.footer {
+  background-color: #111827;
+  color: #e5e7eb;
+  padding-top: clamp(2rem, 5vw, 2.5rem);
+  padding-bottom: clamp(1rem, 2vw, 1.5rem);
+  margin-top: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.brand {
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.brandText {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: white;
+}
+
+.brandDescription {
+  color: #9ca3af;
+  font-size: clamp(0.75rem, 1.25vw, 0.875rem);
+  max-width: 400px;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.socialLinks {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+.socialLink {
+  color: #9ca3af;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  transition: color 0.2s;
+}
+
+.socialLink:hover {
+  color: white;
+}
+
+.linkGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.linkSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  font-weight: 600;
+  color: white;
+  margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vw, 0.75rem);
+}
+
+.link {
+  color: #e5e7eb;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+}
+
+.link:hover {
+  color: #5D5BD4;
+  text-decoration: underline;
+}
+
+.bottomSection {
+  border-top: 1px solid #374151;
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+  text-align: center;
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  color: #9ca3af;
+}
+
+.copyright {
+  margin-bottom: clamp(0.5rem, 1vw, 0.75rem);
+}
+
+@media (min-width: 768px) {
+  .topSection {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .brand {
+    margin-bottom: 0;
+  }
+} 

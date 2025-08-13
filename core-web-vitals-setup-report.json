@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-07-23T23:13:11.454Z",
+  "summary": {
+    "total": 5,
+    "errors": 0,
+    "warnings": 1,
+    "passed": 4
+  },
+  "results": {
+    "passed": [
+      "Web Vitals configuration created",
+      "Web Vitals reporter created",
+      "Web Vitals API endpoint created",
+      "Web Vitals dashboard component created"
+    ],
+    "warnings": [
+      "web-vitals library not found in dependencies"
+    ],
+    "errors": []
+  },
+  "nextSteps": [
+    "Install web-vitals library: npm install web-vitals",
+    "Add WebVitalsReporter to your root layout component",
+    "Configure Google Analytics to receive Web Vitals data",
+    "Set up monitoring alerts for poor performance",
+    "Create performance budgets and CI/CD integration",
+    "Implement automated performance testing"
+  ],
+  "implementation": {
+    "rootLayout": "Add initializeWebVitals() to your root layout",
+    "dashboard": "Include WebVitalsDashboard component for debugging",
+    "api": "Web Vitals API endpoint ready at /api/analytics/web-vitals",
+    "monitoring": "Configure alerts and thresholds in web-vitals-config.ts"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-07-23T16:24:04.307Z",
+  "summary": {
+    "total": 16,
+    "errors": 0,
+    "warnings": 1,
+    "passed": 15
+  },
+  "results": {
+    "passed": [
+      "src/app/page.tsx uses modern Next.js metadata export",
+      "src/app/page.tsx has Open Graph metadata configured",
+      "src/app/page.tsx has Twitter card metadata configured",
+      "src/app/page.tsx includes structured data",
+      "src/app/not-found.tsx uses modern Next.js metadata export",
+      "src/app/not-found.tsx has Open Graph metadata configured",
+      "src/app/not-found.tsx has Twitter card metadata configured",
+      "src/app/(platform)/resources/page.tsx uses modern Next.js metadata export",
+      "src/app/(platform)/resources/page.tsx has Open Graph metadata configured",
+      "src/app/(platform)/resources/page.tsx has Twitter card metadata configured",
+      "src/app/(platform)/resources/page.tsx includes structured data",
+      "src/app/(platform)/solutions/public/page.tsx uses modern Next.js metadata export",
+      "src/app/(platform)/solutions/public/page.tsx has Open Graph metadata configured",
+      "src/app/(platform)/solutions/public/page.tsx has Twitter card metadata configured",
+      "src/app/(platform)/solutions/public/page.tsx includes structured data"
+    ],
+    "warnings": [
+      "Missing structured data in src/app/not-found.tsx"
+    ],
+    "errors": [],
+    "recommendations": []
+  },
+  "recommendations": [
+    "Implement all error fixes immediately",
+    "Address warnings within 1-2 weeks",
+    "Monitor Core Web Vitals regularly",
+    "Set up Google Search Console",
+    "Create content calendar for regular updates",
+    "Implement automated SEO monitoring"
+  ]
+}

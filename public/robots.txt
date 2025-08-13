@@ -1,0 +1,39 @@
+# Robots.txt for MyGETS
+# Generated on 2025-07-23T23:13:52.177Z
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mygets.net/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow important SEO files
+Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /favicon.ico
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block problematic bots (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

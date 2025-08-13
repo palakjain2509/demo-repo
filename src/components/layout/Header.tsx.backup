@@ -1,0 +1,376 @@
+// components/Header.tsx
+'use client';
+
+import Link from 'next/link';
+import { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
+import styles from './Header.module.css';
+
+export default function Header() {
+  const pathname = usePathname();
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  // 1) Close everything after any navigation
+  useEffect(() => {
+    setOpenDropdown(null);
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  // 2) Only handle outside clicks for the *mobile* drawer
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        isMobileMenuOpen &&
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(e.target as Node)
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMobileMenuOpen]);
+
+  // 3) Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
+  const toggleDropdown = (key: string) =>
+    setOpenDropdown(prev => (prev === key ? null : key));
+
+  const closeAllMenus = () => {
+    setOpenDropdown(null);
+    setIsMobileMenuOpen(false);
+  };
+
+  const platformItems = [
+    { href: '/platform', label: 'Overview' },
+    { href: '/platform/spend-analytics', label: 'Spend Analytics' },
+    { href: '/platform/supplier-management', label: 'Supplier Management' },
+    { href: '/platform/contract-lifecycle', label: 'Contract Lifecycle Management' },
+    { href: '/platform/ocds-reporting', label: 'OCDS Reporting' },
+    { href: '/platform/our-engine', label: 'Our Engine: Data & AI Models' },
+    { href: '/platform/integrations', label: 'Integrations' },
+    { href: '/platform/security', label: 'Security' },
+  ];
+
+  const solutionsItems = [
+    { href: '/solutions/private-sector', label: 'Private Sector' },
+    { href: '/solutions/public-sector', label: 'Public Sector' },
+    { href: '/solutions/business-development', label: 'Business Development' },
+    { href: '/solutions/executives', label: 'Executives' },
+    { href: '/solutions/procurement-leads', label: 'Procurement Leads' },
+    { href: '/dashboard', label: 'Try Our Demo Dashboard' },
+  ];
+
+  const resourcesItems = [
+    { href: '/resources/blog', label: 'Blogs' },
+    { href: '/resources/case-studies', label: 'Case Studies' },
+    { href: '/resources/ocds-guide', label: 'OCDS Guide' },
+    { href: '/resources/webinars', label: 'Webinars and Podcasts' },
+    { href: '/resources/whitepapers', label: 'Whitepapers' },
+    { href: '/resources/models', label: 'Data & AI Models' },
+    { href: '/resources/faq', label: 'FAQs' },
+  ];
+
+  const aboutUsItems = [
+    { href: '/about-us', label: 'About Us' },
+  ];
+
+  return (
+    <header className={styles.header}>
+      <div className={styles.container}>
+        {/* Logo */}
+        <Link href="/" className={styles.logoText}>
+          MYGETS
+        </Link>
+
+        {/* Mobile hamburger */}
+        <button
+          className={styles.mobileMenuButton}
+          aria-label="Toggle mobile menu"
+          onClick={() => setIsMobileMenuOpen(o => !o)}
+        >
+          <svg
+            width="1.5rem" height="1.5rem" color="#5D5BD4"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          >
+            {isMobileMenuOpen
+              ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12" />
+              : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16" />}
+          </svg>
+        </button>
+
+        {/* Desktop nav */}
+        <nav className={styles.nav}>
+          <ul className={styles.navList}>
+            <li><Link href="/" className={styles.navLink}>Home</Link></li>
+            <li><Link href="/about-us" className={styles.navLink}>About Us</Link></li>
+            <li><Link href="/phased-launch" className={styles.navLink}>Phased Launch</Link></li>
+            
+            {/* Platform dropdown */}
+            <li className={styles.dropdownContainer}>
+              <button
+                className={styles.dropdownButton}
+                aria-expanded={openDropdown === 'platform'}
+                onClick={() => toggleDropdown('platform')}
+              >
+                Platform
+                <svg
+                  className={`${styles.dropdownIcon} ${openDropdown === 'platform' ? styles.rotate : ''}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div
+                className={styles.dropdownMenu}
+                style={{ display: openDropdown === 'platform' ? 'block' : 'none' }}
+              >
+                {platformItems.map(item => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={styles.navLink}
+                    onClick={closeAllMenus}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </li>
+
+            {/* Solutions dropdown */}
+            <li className={styles.dropdownContainer}>
+              <button
+                className={styles.dropdownButton}
+                aria-expanded={openDropdown === 'solutions'}
+                onClick={() => toggleDropdown('solutions')}
+              >
+                Solutions
+                <svg
+                  className={`${styles.dropdownIcon} ${openDropdown === 'solutions' ? styles.rotate : ''}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div
+                className={styles.dropdownMenu}
+                style={{ display: openDropdown === 'solutions' ? 'block' : 'none' }}
+              >
+                {solutionsItems.map(item => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={styles.navLink}
+                    onClick={closeAllMenus}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </li>
+
+            <li><Link href="/community" className={styles.navLink}>Community</Link></li>
+
+            {/* Resources dropdown */}
+            <li className={styles.dropdownContainer}>
+              <button
+                className={styles.dropdownButton}
+                aria-expanded={openDropdown === 'resources'}
+                onClick={() => toggleDropdown('resources')}
+              >
+                Resources
+                <svg
+                  className={`${styles.dropdownIcon} ${openDropdown === 'resources' ? styles.rotate : ''}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div
+                className={styles.dropdownMenu}
+                style={{ display: openDropdown === 'resources' ? 'block' : 'none' }}
+              >
+                {resourcesItems.map(item => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={styles.navLink}
+                    onClick={closeAllMenus}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </li>
+
+            <li><Link href="/contact" className={styles.navLink}>Contact</Link></li>
+            <li>
+              <Link 
+                href="https://app.mygets.net/" 
+                className="text-blue-700 font-semibold py-3 px-6 rounded-lg border-2 border-blue-700 hover:bg-blue-50 transition-colors inline-block mr-4"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Login
+              </Link>
+            </li>
+            <li>
+              <Link href="/request-demo" className="bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-800 transition-colors inline-block">
+                Request Demo
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* Mobile drawer */}
+        <div
+          ref={mobileMenuRef}
+          className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}
+        >
+          <ul className={styles.mobileMenuList}>
+            <li>
+              <Link href="/" className={styles.navLink} onClick={closeAllMenus}>
+                Home
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/about-us" className={styles.navLink} onClick={closeAllMenus}>
+                About Us
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/phased-launch" className={styles.navLink} onClick={closeAllMenus}>
+                Phased Launch
+              </Link>
+            </li>
+
+            {/* Mobile Platform submenu */}
+            <li>
+              <button
+                className={styles.dropdownButton}
+                aria-expanded={openDropdown === 'platform'}
+                onClick={() => toggleDropdown('platform')}
+              >
+                Platform
+                <svg
+                  className={`${styles.dropdownIcon} ${openDropdown === 'platform' ? styles.rotate : ''}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div
+                className={`${styles.dropdownMenu} ${styles.mobileDropdownMenu}`}
+                style={{ display: openDropdown === 'platform' ? 'block' : 'none' }}
+              >
+                {platformItems.map(item => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={styles.navLink}
+                    onClick={closeAllMenus}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </li>
+
+            {/* Mobile Solutions submenu */}
+            <li>
+              <button
+                className={styles.dropdownButton}
+                aria-expanded={openDropdown === 'solutions'}
+                onClick={() => toggleDropdown('solutions')}
+              >
+                Solutions
+                <svg
+                  className={`${styles.dropdownIcon} ${openDropdown === 'solutions' ? styles.rotate : ''}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div
+                className={`${styles.dropdownMenu} ${styles.mobileDropdownMenu}`}
+                style={{ display: openDropdown === 'solutions' ? 'block' : 'none' }}
+              >
+                {solutionsItems.map(item => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={styles.navLink}
+                    onClick={closeAllMenus}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </li>
+
+            <li>
+              <Link href="/community" className={styles.navLink} onClick={closeAllMenus}>
+                Community
+              </Link>
+            </li>
+
+            {/* Mobile Resources submenu */}
+            <li>
+              <button
+                className={styles.dropdownButton}
+                aria-expanded={openDropdown === 'resources'}
+                onClick={() => toggleDropdown('resources')}
+              >
+                Resources
+                <svg
+                  className={`${styles.dropdownIcon} ${openDropdown === 'resources' ? styles.rotate : ''}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div
+                className={`${styles.dropdownMenu} ${styles.mobileDropdownMenu}`}
+                style={{ display: openDropdown === 'resources' ? 'block' : 'none' }}
+              >
+                {resourcesItems.map(item => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={styles.navLink}
+                    onClick={closeAllMenus}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </li>
+
+            <li>
+              <Link href="/contact" className={styles.navLink} onClick={closeAllMenus}>
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="https://app.mygets.net/" 
+                className={`

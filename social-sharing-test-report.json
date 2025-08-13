@@ -1,0 +1,47 @@
+{
+  "timestamp": "2025-07-23T16:23:55.748Z",
+  "summary": {
+    "total": 18,
+    "errors": 0,
+    "warnings": 0,
+    "passed": 18
+  },
+  "results": {
+    "passed": [
+      "src/app/page.tsx has all required Open Graph properties",
+      "src/app/page.tsx has Open Graph images configured",
+      "src/app/not-found.tsx has all required Open Graph properties",
+      "src/app/not-found.tsx has Open Graph images configured",
+      "src/app/(platform)/resources/page.tsx has all required Open Graph properties",
+      "src/app/(platform)/resources/page.tsx has Open Graph images configured",
+      "src/app/(platform)/solutions/public/page.tsx has all required Open Graph properties",
+      "src/app/(platform)/solutions/public/page.tsx has Open Graph images configured",
+      "src/app/page.tsx has all required Twitter card properties",
+      "src/app/page.tsx has Twitter card images configured",
+      "src/app/not-found.tsx has all required Twitter card properties",
+      "src/app/not-found.tsx has Twitter card images configured",
+      "src/app/(platform)/resources/page.tsx has all required Twitter card properties",
+      "src/app/(platform)/resources/page.tsx has Twitter card images configured",
+      "src/app/(platform)/solutions/public/page.tsx has all required Twitter card properties",
+      "src/app/(platform)/solutions/public/page.tsx has Twitter card images configured",
+      "public/images/og-image.svg exists (2.96 KB)",
+      "public/images/twitter-image.svg exists (3.40 KB)"
+    ],
+    "warnings": [],
+    "errors": []
+  },
+  "testUrls": {
+    "facebook": "https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fmygets.net",
+    "twitter": "https://cards-dev.twitter.com/validator?url=https%3A%2F%2Fmygets.net",
+    "linkedin": "https://www.linkedin.com/post-inspector/inspect/https%3A%2F%2Fmygets.net",
+    "opengraph": "https://www.opengraph.xyz/url/https%3A%2F%2Fmygets.net"
+  },
+  "recommendations": [
+    "Test all URLs in Facebook Debugger before going live",
+    "Validate Twitter Cards using Twitter Card Validator",
+    "Check LinkedIn sharing with LinkedIn Post Inspector",
+    "Ensure images are optimized and load quickly",
+    "Test sharing on mobile devices",
+    "Monitor social media analytics for engagement"
+  ]
+}

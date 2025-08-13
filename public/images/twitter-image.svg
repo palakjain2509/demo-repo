@@ -1,0 +1,67 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#twitterGradient)"/>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="twitterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Logo/Brand Area -->
+  <rect x="80" y="80" width="140" height="50" rx="10" fill="white" opacity="0.95"/>
+  <text x="150" y="110" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1e40af">MyGETS</text>
+  
+  <!-- Main Title -->
+  <text x="600" y="180" font-family="Arial, sans-serif" font-size="44" font-weight="bold" text-anchor="middle" fill="white">
+    Procurement Intelligence
+  </text>
+  <text x="600" y="230" font-family="Arial, sans-serif" font-size="44" font-weight="bold" text-anchor="middle" fill="white">
+    Powered by OCDS
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="290" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="white" opacity="0.9">
+    Automated risk detection • Real-time analytics • Compliance management
+  </text>
+  
+  <!-- Key Stats/Features in Cards -->
+  <g transform="translate(150, 350)">
+    <rect x="0" y="0" width="200" height="80" rx="12" fill="white" opacity="0.15"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">Real-time</text>
+    <text x="100" y="55" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="white" opacity="0.9">Risk Detection</text>
+  </g>
+  
+  <g transform="translate(400, 350)">
+    <rect x="0" y="0" width="200" height="80" rx="12" fill="white" opacity="0.15"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">OCDS</text>
+    <text x="100" y="55" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="white" opacity="0.9">Native Platform</text>
+  </g>
+  
+  <g transform="translate(650, 350)">
+    <rect x="0" y="0" width="200" height="80" rx="12" fill="white" opacity="0.15"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">AI-Powered</text>
+    <text x="100" y="55" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="white" opacity="0.9">Analytics</text>
+  </g>
+  
+  <!-- Call to Action -->
+  <rect x="450" y="470" width="300" height="50" rx="25" fill="white" opacity="0.9"/>
+  <text x="600" y="500" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e40af">
+    Transform Your Procurement
+  </text>
+  
+  <!-- Website URL -->
+  <text x="600" y="560" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="white" opacity="0.8">
+    mygets.net
+  </text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="950" cy="120" r="50" fill="white" opacity="0.08"/>
+  <circle cx="1020" cy="180" r="35" fill="white" opacity="0.08"/>
+  <circle cx="1080" cy="140" r="25" fill="white" opacity="0.08"/>
+  <circle cx="120" cy="480" r="25" fill="white" opacity="0.08"/>
+  <circle cx="180" cy="520" r="15" fill="white" opacity="0.08"/>
+</svg>
